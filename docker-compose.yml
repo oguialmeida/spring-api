@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  db:
+    container_name: find-a-dish-db
+    image: postgres:alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=simpleapi
+      - POSTGRES_DB=simpleapi
+      - PG_DATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+
+volumes:
+  postgresql_data:
